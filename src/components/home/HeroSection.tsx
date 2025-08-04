@@ -1,26 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const slides = [
   {
     title: "Summer Collection",
-    subtitle: "Discover our latest products with exceptional quality",
-    ctaPrimary: { text: "Shop Now", link: "/collections/summer" },
-    mainImage: "https://images.pexels.com/photos/6567607/pexels-photo-6567607.jpeg",
+    mainImage: "https://rukminim2.flixcart.com/fk-p-flap/960/160/image/f2ffab1767893241.jpg?q=60",
   },
   {
     title: "Winter Essentials",
-    subtitle: "Stay warm with our premium winter wear",
-    ctaPrimary: { text: "Shop Jackets", link: "/category/jackets" },
-    mainImage: "https://images.pexels.com/photos/102129/pexels-photo-102129.jpeg",
+    mainImage: "https://rukminim2.flixcart.com/fk-p-flap/960/160/image/c9c7b904fae51a5a.jpg?q=60",
   },
   {
-    title: "Spring Fashion",
-    subtitle: "Fresh styles for the new season",
-    ctaPrimary: { text: "New Arrivals", link: "/new-arrivals" },
-    mainImage: "https://images.pexels.com/photos/914668/pexels-photo-914668.jpeg",
+    title: "New Arrivals",
+    mainImage: "https://rukminim2.flixcart.com/fk-p-flap/960/160/image/14e4662c976fac19.jpeg?q=60",
   },
 ];
 
@@ -46,9 +39,12 @@ export const HeroSection: React.FC = () => {
   const currentSlide = slides[currentIndex];
 
   return (
-    <section className="relative overflow-hidden text-white h-[400px] w-full">
+    <section className="relative overflow-hidden text-white w-full" style={{ height: 'clamp(160px, 25vw, 400px)' }}>
+      {/* Background with the specified color */}
+      <div className="absolute inset-0 z-0"></div>
+      
       {/* Main Slider */}
-      <div className="w-full h-full">
+      <div className="w-full h-full relative z-10">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={currentIndex}
@@ -59,22 +55,18 @@ export const HeroSection: React.FC = () => {
             exit={{ opacity: 0, x: direction === "right" ? -100 : 100 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full flex items-center justify-center">
+              {/* Optimized image implementation */}
               <img
                 src={currentSlide.mainImage}
                 alt={currentSlide.title}
-                className="w-full h-full object-cover"
+                className="w-full h-auto min-h-full object-contain"
+                loading="eager"
+                decoding="async"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-6 text-white max-w-7xl mx-auto w-full">
-                <h2 className="text-3xl font-bold">{currentSlide.title}</h2>
-                <p className="text-lg mt-2">{currentSlide.subtitle}</p>
-                <Link
-                  to={currentSlide.ctaPrimary.link}
-                  className="mt-4 inline-block px-6 py-2 bg-white text-black rounded-md font-medium hover:bg-gray-100 transition"
-                >
-                  {currentSlide.ctaPrimary.text}
-                </Link>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#FF5A5F]/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-4 md:p-6 text-white max-w-7xl mx-auto w-full">
+                {/* Content can be added here if needed */}
               </div>
             </div>
           </motion.div>
@@ -83,19 +75,21 @@ export const HeroSection: React.FC = () => {
         {/* Navigation Controls */}
         <button
           onClick={handlePrev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/20 hover:bg-black/30 text-white transition-all"
+          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 p-1 md:p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-all backdrop-blur-sm"
+          aria-label="Previous slide"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft size={20} strokeWidth={2} />
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/20 hover:bg-black/30 text-white transition-all"
+          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 p-1 md:p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-all backdrop-blur-sm"
+          aria-label="Next slide"
         >
-          <ChevronRight size={24} />
+          <ChevronRight size={20} strokeWidth={2} />
         </button>
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+        <div className="absolute bottom-2 md:bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
           {slides.map((_, index) => (
             <button
               key={index}
@@ -103,9 +97,10 @@ export const HeroSection: React.FC = () => {
                 setDirection(index > currentIndex ? "right" : "left");
                 setCurrentIndex(index);
               }}
-              className={`h-2 rounded-full transition-all ${
-                index === currentIndex ? "w-6 bg-white" : "w-2 bg-white/50"
+              className={`h-1.5 md:h-2 rounded-full transition-all duration-300 ${
+                index === currentIndex ? "w-4 md:w-6 bg-white" : "w-1.5 md:w-2 bg-white/50"
               }`}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
