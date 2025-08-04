@@ -39,7 +39,8 @@ export const HeroSection: React.FC = () => {
   const currentSlide = slides[currentIndex];
 
   return (
-    <section className="relative overflow-hidden text-white w-full" style={{ height: 'clamp(160px, 25vw, 400px)' }}>
+    <section className="relative overflow-hidden text-white w-full" style={{ height: 'clamp(140px, 20vw, 350px)' }}
+>
       {/* Background with the specified color */}
       <div className="absolute inset-0 z-0"></div>
       
