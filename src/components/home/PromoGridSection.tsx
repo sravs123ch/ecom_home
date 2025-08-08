@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export const PromoGridSection: React.FC = () => {
   return (
     <section className="py-12 md:py-16 bg-white">
-      <div className="container px-4 mx-auto">
+      <div className="px-4 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {/* Left Column */}
           <div className="grid grid-cols-1 gap-6 md:gap-8">
