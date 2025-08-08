@@ -46,6 +46,7 @@ const HomePage: React.FC = () => {
           products={newProducts}
           viewAllLink="/collections/new"
         />
+          <PromotionBanner {...promotions[1]} />
         <FeaturedSection/>
           <FeaturedProducts
           title="Recently viewed"

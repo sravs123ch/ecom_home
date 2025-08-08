@@ -389,7 +389,8 @@ export const promotions = [
     title: "New Season Collection",
     description: "Discover the latest trends",
     image:
-      "https://images.pexels.com/photos/6567607/pexels-photo-6567607.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      // "https://images.pexels.com/photos/6567607/pexels-photo-6567607.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://rukminim2.flixcart.com/fk-p-flap/2020/340/image/28ce80d034b9c679.jpg?q=60",
     link: "/collections/new-season",
   },
 ];
