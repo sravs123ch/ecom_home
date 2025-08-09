@@ -98,55 +98,104 @@
 // };
 
 
+// import { Link } from 'react-router-dom';
+// import { motion } from 'framer-motion';
+
+// export const OfferBanner = () => {
+//   const offers = [
+//     {
+//       image:"https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/b9ebd15a7ef5ae15.jpg?q=60"  
+// },
+//     {
+    
+//     image:"https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/8666b744ab501a32.jpg?q=60"  
+//     },
+//     {
+    
+//     image:"https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/e25af625ed7ad312.jpg?q=60"  
+//     },
+//     {
+//     image:"https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/d4d13a167728ad9a.png?q=60"  
+//     },
+//     {
+//      image:"https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/f6e310db723e9fb0.jpg?q=60"  
+//     },
+//     {
+//     image:"https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/04688237bd317bd1.jpg?q=60"  
+//     }
+//   ];
+
+//   return (
+//     <section className="bg-white py-6 px-4">
+//       <div className="w-full">
+//         <div className="grid grid-cols-3 gap-2">
+//           {offers.map((offer, index) => (
+//             <motion.div
+//               key={index}
+//               whileHover={{ 
+//                 y: -5,
+//                 boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)"
+//               }}
+//               className="bg-white shadow-sm hover:shadow-md border border-gray-100 overflow-hidden transition-all w-full"
+//             >
+//               <Link to="/offers" className="block h-full">
+//                 <div className="relative h-60 w-full">
+//                   {/* Image with overlay */}
+//                   <img 
+//                     src={offer.image} 
+                
+//                     className="h-full w-full object-contain"
+//                   />
+                
+//                 </div>
+//               </Link>
+//             </motion.div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export const OfferBanner = () => {
   const offers = [
-    {
-      image:"https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/b9ebd15a7ef5ae15.jpg?q=60"  
-},
-    {
-    
-    image:"https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/8666b744ab501a32.jpg?q=60"  
-    },
-    {
-    
-    image:"https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/e25af625ed7ad312.jpg?q=60"  
-    },
-    {
-    image:"https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/d4d13a167728ad9a.png?q=60"  
-    },
-    {
-     image:"https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/f6e310db723e9fb0.jpg?q=60"  
-    },
-    {
-    image:"https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/04688237bd317bd1.jpg?q=60"  
-    }
+    { image: "https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/b9ebd15a7ef5ae15.jpg?q=60" },
+    { image: "https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/8666b744ab501a32.jpg?q=60" },
+    { image: "https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/e25af625ed7ad312.jpg?q=60" },
+    { image: "https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/d4d13a167728ad9a.png?q=60" },
+    { image: "https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/f6e310db723e9fb0.jpg?q=60" },
+    { image: "https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/04688237bd317bd1.jpg?q=60" }
   ];
 
   return (
-    <section className="bg-white py-6 px-4">
-      <div className="w-full">
-        <div className="grid grid-cols-3 gap-2">
+    <section className="bg-white py-4 sm:py-6 px-2 sm:px-4">
+      <div className="w-full max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 md:gap-4">
           {offers.map((offer, index) => (
             <motion.div
               key={index}
               whileHover={{ 
                 y: -5,
-                boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)"
+                boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+                transition: { duration: 0.2 }
               }}
               className="bg-white shadow-sm hover:shadow-md border border-gray-100 overflow-hidden transition-all w-full"
             >
               <Link to="/offers" className="block h-full">
-                <div className="relative h-60 w-full">
-                  {/* Image with overlay */}
+                <div className="relative aspect-[1040/560]"> 
                   <img 
                     src={offer.image} 
-                
-                    className="h-full w-full object-contain"
+                    alt={`Offer ${index + 1}`}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://via.placeholder.com/1040x560?text=Offer+Image";
+                      e.currentTarget.className = "absolute inset-0 h-full w-full object-contain";
+                    }}
                   />
-                
                 </div>
               </Link>
             </motion.div>
