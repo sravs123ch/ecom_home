@@ -29,7 +29,7 @@ export const FeaturedSection = () => {
   ];
 
   return (
-    <section className="bg-white px-4 w-full">
+    <section className="bg-white px-4 w-full mb-4">
       <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 min-h-[500px]">
         {/* Left: Season's Top Picks (2 columns on large screens) */}
         <div className="lg:col-span-2 bg-white border border-gray-200 rounded-xl p-5 flex flex-col">
