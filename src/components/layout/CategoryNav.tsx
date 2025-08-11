@@ -31,7 +31,7 @@ return (
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="text-sm font-medium text-gray-700 group-hover:text-blue-600 transition-colors text-center">
+              <span className="text-sm font-medium text-gray-700 group-hover:text-primary-500 transition-colors text-center">
                 {category.name}
               </span>
             </div>
