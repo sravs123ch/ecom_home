@@ -54,7 +54,8 @@ export const BannerSection: React.FC = () => {
               key={index}
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
-              className="relative rounded-2xl overflow-hidden h-80 md:h-96 shadow-sm hover:shadow-md"
+              className="relative rounded-2xl overflow-hidden h-48 md:h-60 shadow-sm hover:shadow-md"
+
             >
               {/* Background Image */}
               <img 
